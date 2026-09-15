@@ -1,0 +1,129 @@
+{
+  "entities": {
+    "Booking": {
+      "title": "Booking",
+      "description": "Facility service booking record for MSD Facility Services",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "refNo": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerCell": { "type": "string" },
+        "address": { "type": "string" },
+        "locationId": { "type": "string" },
+        "serviceDate": { "type": "string" },
+        "timeSlot": { "type": "string" },
+        "services": { "type": "string" },
+        "serviceDescription": { "type": "string" },
+        "assignedStaff": { "type": "string" },
+        "staffCell": { "type": "string" },
+        "assignedStaff2": { "type": "string" },
+        "staffCell2": { "type": "string" },
+        "teamLeader": { "type": "string" },
+        "teamMembers": { "type": "array" },
+        "amount": { "type": "string" },
+        "jobStatus": { "type": "string" },
+        "customerMsg": { "type": "string" },
+        "staffMsg": { "type": "string" },
+        "notes": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "completedAt": { "type": "string" }
+      },
+      "required": ["refNo", "customerName", "customerCell", "address", "serviceDate", "timeSlot", "services", "amount", "jobStatus"]
+    },
+    "Customer": {
+      "title": "Customer",
+      "description": "Customer directory profile and history",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "totalBookings": { "type": "number" },
+        "totalSpent": { "type": "string" },
+        "lastServiceDate": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "phone"]
+    },
+    "Staff": {
+      "title": "Staff",
+      "description": "MSD Facility Services staff roster member",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "members": { "type": "string" },
+        "phone": { "type": "string" },
+        "role": { "type": "string" },
+        "active": { "type": "boolean" },
+        "maxServicesPerDay": { "type": "number" }
+      },
+      "required": ["id", "name", "phone", "active"]
+    },
+    "SavedLocation": {
+      "title": "SavedLocation",
+      "description": "Saved frequent service location in Puducherry",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "fullAddress": { "type": "string" },
+        "areaName": { "type": "string" },
+        "mapsUrl": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "fullAddress"]
+    },
+    "SyncConfig": {
+      "title": "SyncConfig",
+      "description": "Configuration for live sync with user's Google Sheet and Apps Script webhook",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "webhookUrl": { "type": "string" },
+        "spreadsheetId": { "type": "string" },
+        "sheetName": { "type": "string" },
+        "autoSyncOnSave": { "type": "boolean" },
+        "lastSyncedAt": { "type": "string" },
+        "lastSyncStatus": { "type": "string" }
+      },
+      "required": ["id"]
+    },
+    "Counter": {
+      "title": "Counter",
+      "description": "Central persistent atomic reference sequence counter",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "currentNumber": { "type": "number" },
+        "prefix": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["currentNumber"]
+    }
+  },
+  "firestore": {
+    "/bookings/{bookingId}": {
+      "entity": "Booking"
+    },
+    "/counters/{counterId}": {
+      "entity": "Counter"
+    },
+    "/customers/{customerId}": {
+      "entity": "Customer"
+    },
+    "/staff/{staffId}": {
+      "entity": "Staff"
+    },
+    "/savedLocations/{locationId}": {
+      "entity": "SavedLocation"
+    },
+    "/syncConfig/{configId}": {
+      "entity": "SyncConfig"
+    }
+  }
+}

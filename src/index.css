@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+/* Global Light Theme palette adaptation for Tailwind slate utilities */
+html:not(.dark), html.light {
+  --color-slate-950: #f8fafc;
+  --color-slate-900: #ffffff;
+  --color-slate-800: #e2e8f0;
+  --color-slate-700: #cbd5e1;
+  --color-slate-600: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-400: #475569;
+  --color-slate-300: #334155;
+  --color-slate-200: #1e293b;
+  --color-slate-100: #0f172a;
+}
+
+/* In light mode, headings and titles adapt to crisp dark slate */
+html:not(.dark) h1.text-white,
+html:not(.dark) h2.text-white,
+html:not(.dark) h3.text-white,
+html:not(.dark) h4.text-white,
+html:not(.dark) .font-black.text-white,
+html:not(.dark) .font-bold.text-white,
+html:not(.dark) strong.text-white,
+html:not(.dark) p.text-white,
+html:not(.dark) label.text-white {
+  color: #0f172a;
+}
+
+/* Light mode card subtle shadow */
+html:not(.dark) .bg-slate-900 {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+}
+
+/* Inputs, textareas, and selects in light mode */
+html:not(.dark) input.text-white,
+html:not(.dark) textarea.text-white,
+html:not(.dark) select.text-white {
+  color: #0f172a;
+}
+
+html:not(.dark) ::placeholder {
+  color: #94a3b8;
+}
+
+/* Action buttons and colored badges retain high contrast white text */
+button.bg-blue-600,
+button.bg-blue-500,
+button.bg-emerald-600,
+button.bg-emerald-500,
+button.bg-rose-600,
+button.bg-rose-700,
+button.bg-violet-600,
+.bg-rose-500,
+.bg-rose-600,
+.bg-emerald-500,
+.bg-emerald-600,
+.bg-blue-600,
+.bg-indigo-600 {
+  color: #ffffff !important;
+}
+
+button.bg-blue-600 *,
+button.bg-blue-500 *,
+button.bg-emerald-600 *,
+button.bg-emerald-500 *,
+button.bg-rose-600 *,
+button.bg-rose-700 *,
+button.bg-violet-600 *,
+.bg-rose-500 *,
+.bg-emerald-500 * {
+  color: #ffffff;
+}
+
+button.bg-amber-400 {
+  color: #020617 !important;
+}
+

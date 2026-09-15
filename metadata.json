@@ -1,0 +1,8 @@
+{
+  "name": "MSD Facility Services",
+  "description": "Mobile-first booking management, dual-staff scheduling, calendar and Google Sheet sync for MSD Facility Services in Puducherry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

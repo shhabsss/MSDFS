@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Bookings collection: allow read (get & list) and write for operational dashboard
+    match /bookings/{bookingId} {
+      allow read, write: if true;
+    }
+
+    // Reference number sequence counters (atomic multi-user sequential allocator)
+    match /counters/{counterId} {
+      allow read, write: if true;
+    }
+
+    // Customers collection
+    match /customers/{customerId} {
+      allow read, write: if true;
+    }
+
+    // Staff roster collection
+    match /staff/{staffId} {
+      allow read, write: if true;
+    }
+
+    // Saved locations collection
+    match /savedLocations/{locationId} {
+      allow read, write: if true;
+    }
+
+    // Google Sheets sync configuration
+    match /syncConfig/{configId} {
+      allow read, write: if true;
+    }
+  }
+}
